@@ -147,7 +147,7 @@ namespace Airport_Ticket_Booking.Services
 
         public static void EditBooking(List<Booking> bookings)
         {
-            using (var writer = new StreamWriter(ClassesFile, false))
+            using (var writer = new StreamWriter(BookingsFile, false))
             {
                 writer.WriteLine("BookingID,FlightID,UserID,Class,Price");
 
