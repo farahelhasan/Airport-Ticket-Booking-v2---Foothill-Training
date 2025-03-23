@@ -67,6 +67,72 @@ namespace Airport_Ticket_Booking.Services
             return errors;
         }
 
+        public static void ImportFlightsFromCSV(string ImportedFile)
+        {
+            List<Flight> flights = FileHandler.ReadFlights(ImportedFile);
+            List<string> errors = new List<string>();
+            List<Flight> validFlights = new List<Flight>();
+
+            for (int i = 0; i < flights.Count; i++)
+            {
+                var flightErrors = ValidateFlight(flights[i], i + 1);
+                if (flightErrors.Count > 0)
+                {
+                    errors.AddRange(flightErrors);
+                }
+                else
+                {
+                    validFlights.Add(flights[i]);  
+                }
+            }
+
+            if (errors.Count > 0)
+            {
+                Console.WriteLine("Errors found in flight data:");
+                foreach (var error in errors)
+                    Console.WriteLine(error);
+            }
+
+            if (validFlights.Count > 0)
+            {
+                FileHandler.SaveFlights(validFlights);
+                Console.WriteLine("Valid flights have been added successfully!");
+            }
+        }
+
+        public static void ImportClassesFromCSV(string ImportedFile)
+        {
+            List<Flight> flights = FileHandler.ReadFlights(FlightsFile); 
+            List<Class> classes = FileHandler.ReadClasses(ImportedFile);
+            List<string> errors = new List<string>();
+            List<Class> validClasses = new List<Class>();
+
+            for (int i = 0; i < classes.Count; i++)
+            {
+                var classErrors = ValidateClass(classes[i], flights, i + 1);
+                if (classErrors.Count > 0)
+                {
+                    errors.AddRange(classErrors);
+                }
+                else
+                {
+                    validClasses.Add(classes[i]);  
+                }
+            }
+
+            if (errors.Count > 0)
+            {
+                Console.WriteLine("Errors found in class data:");
+                foreach (var error in errors)
+                    Console.WriteLine(error);
+            }
+
+            if (validClasses.Count > 0)
+            {
+                FileHandler.SaveClasses(validClasses);
+                Console.WriteLine("Valid classes have been added successfully!");
+            }
+        }
 
     }
 }
