@@ -1,0 +1,16 @@
+FlightID,ClassType,Price,SeatsAvailable
+101,Economy,500,100
+101,Business,1200,30
+101,First Class,3000,10
+102,Economy,300,120
+102,Business,800,40
+102,First Class,2000,15
+103,Economy,450,80
+103,Business,1000,25
+103,First Class,2500,8
+104,Economy,600,90
+104,Business,1400,35
+104,First Class,3500,12
+105,Economy,700,110
+105,Business,1600,50
+105,First Class,4000,18

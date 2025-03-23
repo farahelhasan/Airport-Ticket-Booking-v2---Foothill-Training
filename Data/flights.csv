@@ -1,0 +1,6 @@
+FlightID,DepartureCountry,DestinationCountry,DepartureAirport,ArrivalAirport,DepartureDate
+101,USA,UK,JFK,Heathrow,2024-04-10 10:00:00
+102,France,Germany,CDG,Frankfurt,2024-05-12 8:30:00
+103,UAE,India,DXB,Mumbai,2024-06-20 14:45:00
+104,Canada,Italy,Toronto Pearson,Rome FCO,2024-07-15 19:00:00
+105,Japan,Australia,Tokyo Haneda,Sydney,2024-08-01 22:15:00
