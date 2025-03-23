@@ -28,18 +28,18 @@ namespace Airport_Ticket_Booking.Services
 
                     Console.WriteLine("Booking Successful!");
                     Console.WriteLine(booking);
-                    return;
 
                 }
                 else
                 {
                     Console.WriteLine("Enter vaild FlightId...");
-                    return;
 
                 }
             }
-            Console.WriteLine($"Sorry, you cann't book this flight with ID: {flightId} with class: {classType}, because its full! ");
-            return;
+            else
+            {
+                Console.WriteLine($"Sorry, you cann't book this flight with ID: {flightId} with class: {classType}, because its full! ");
+            }
         }
 
         public static void GetUserBooking(int userId)

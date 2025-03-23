@@ -1,9 +1,35 @@
-﻿// See https://aka.ms/new-console-template for more information
-using Airport_Ticket_Booking.Models;
-using Airport_Ticket_Booking.Services;
+﻿using Airport_Ticket_Booking.Services;
+using Airport_Ticket_Booking.UI;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 
-//BookingServices.BookFlight(101, "Economy", 1);
-//BookingServices.BookFlight(101, "Business", 4);
-//BookingServices.BookFlight(101, "Economy", 2);
-BookingServices.BookFlight(102, "Business", 9);
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("Welcome to Airport Ticket Booking System!");
 
+        string role = UserServices.Login();  
+
+        if (role == "Manager")
+        {
+            while (true)
+            {
+                ConsoleUI.ShowManagerMenu();
+            }
+        }
+        else if (role == "Passenger")
+        {
+            while (true)
+            {
+                ConsoleUI.ShowPassengerMenu();
+            }
+        }
+        else
+        {
+            Console.WriteLine("Invalid Login. Exiting...");
+        }
+    }
+}

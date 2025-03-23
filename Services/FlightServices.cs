@@ -17,14 +17,13 @@ namespace Airport_Ticket_Booking.Services
                                    where flight.DepartureCountry.Equals(DepartureCountry, StringComparison.OrdinalIgnoreCase)
                                    && flight.DestinationCountry.Equals(DestinationCountry, StringComparison.OrdinalIgnoreCase)
                                    && flight.DepartureDate.Date.Equals(DateTime.Parse(DepartureDate))
-                                   && flight.DepartureDate >= DateTime.Now
                                    select flight).ToList();
             if (result.Count() < 1) 
             {
                 Console.WriteLine("No flights match the provided criteria");
                 return;
             }
-            foreach(var flight in flights)
+            foreach(var flight in result)
             {
                 Console.WriteLine(flight);
             }
